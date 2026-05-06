@@ -8,3 +8,10 @@ This section contains my notes, exercises, and reflections as I progressively im
 
 ### 1)Determine the registry key used for persistence and enter it as your answer.
 
+I'm utilis artefact AUTORUN it's ok because utils to search process to strat sesion with windows
+and utilised NoteBook for search into flow id autorun to collection and search with next practise reverse.exe 
+I'm find 
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+### 2)Determine the folder that contains all Mimikatz-related files and enter the full path as your answer.
+
