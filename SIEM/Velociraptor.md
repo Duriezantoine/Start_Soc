@@ -15,3 +15,6 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
 ### 2)Determine the folder that contains all Mimikatz-related files and enter the full path as your answer.
 
+I'm search this folder, im's search all register im' found this in utilised artefefat serachYara
+i'm find 
+C:\Users\j0seph\AppData\Local\mimik
