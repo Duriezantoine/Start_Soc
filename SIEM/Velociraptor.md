@@ -18,3 +18,5 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 I'm search this folder, im's search all register im' found this in utilised artefefat serachYara
 i'm find 
 C:\Users\j0seph\AppData\Local\mimik
+
+### 3)Determine the Microsoft Word document that j0seph recently accessed and enter its name as your answer. Answer format: _.DOCX
