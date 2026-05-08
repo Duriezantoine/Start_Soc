@@ -22,3 +22,11 @@ index=main  source="WinEventLog:Security" EventCode=4625 dest="SQLSERVER.corp.lo
 And i'm find sa
 
 ### 3)Modify and employ the provided Sysmon Event 22-based Splunk search on all ingested data (All time) to identify all share names whose location was spoofed by 10.10.0.221. Enter the missing share name from the following list as your answer. myshare, myfileshar3, _
+
+
+index=main   10.10.0.221 EventCode=22
+| table _time, EventCode, source, name, user, Target_Server_Name, Message, IpAddress, Source_Network_Address, Target_Server_Name, QueryName
+| sort 0 _timeyy
+
+I'm find  f1nancefileshare
+ ### 4)Modify and employ the Splunk search provided at the "Detecting Kerberoasting - SPN Querying" part of this section on all ingested data (All time). Enter the name of the user who initiated the process that executed an LDAP query containing the "*(&(samAccountType=805306368)(servicePrincipalName=*)*" string at 2023-07-26 16:42:44 as your answer. Answer format: CORP\_
