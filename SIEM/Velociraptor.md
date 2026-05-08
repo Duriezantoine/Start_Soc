@@ -20,3 +20,6 @@ i'm find
 C:\Users\j0seph\AppData\Local\mimik
 
 ### 3)Determine the Microsoft Word document that j0seph recently accessed and enter its name as your answer. Answer format: _.DOCX
+I'm search to docs and recently actived i use the artefact Windows.Registry.RecentDocs
+I'm find 
+insurance.DOCX
