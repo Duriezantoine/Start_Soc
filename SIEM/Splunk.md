@@ -40,3 +40,5 @@ index=main source="WinEventLog:SilkService-Log"
 Second
 index=main ProcessId=7136 OR PID=7136
 | table _time, ComputerName, ProcessName, SubjectUserName, User, _raw
+
+### 5)A Pass-the-Hash attack took place during the following timeframe earliest=1690543380 latest=1690545180. Enter the involved ComputerName as your answer.
