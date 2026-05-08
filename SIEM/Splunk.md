@@ -42,3 +42,36 @@ index=main ProcessId=7136 OR PID=7136
 | table _time, ComputerName, ProcessName, SubjectUserName, User, _raw
 
 ### 5)A Pass-the-Hash attack took place during the following timeframe earliest=1690543380 latest=1690545180. Enter the involved ComputerName as your answer.
+index=main earliest=1690543380 latest=1690545180 (source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=10 TargetImage="C:\\Windows\\system32\\lsass.exe" SourceImage!="C:\\ProgramData\\Microsoft\\Windows Defender\\platform\\*\\MsMpEng.exe") OR (source="WinEventLog:Security" EventCode=4624 Logon_Type=9 Logon_Process=seclogo)
+| sort _time, RecordNumber
+| transaction host maxspan=1m endswith=(EventCode=4624) startswith=(EventCode=10)
+| stats count by _time, Computer, SourceImage, SourceProcessId, Network_Account_Domain, Network_Account_Name, Logon_Type, Logon_Process
+| fields - count
+
+### 6)Execute the Splunk search provided at the end of this section to find all usernames that may be have executed a Pass-the-Ticket attack. Enter the missing username from the following list as your answer. Administrator, _
+
+index=main earliest=1690392405 latest=1690451745 source="WinEventLog:Security" user!=*$ EventCode IN (4768,4769,4770) 
+| rex field=user "(?<username>[^@]+)"
+| rex field=src_ip "(\:\:ffff\:)?(?<src_ip_4>[0-9\.]+)"
+| transaction username, src_ip_4 maxspan=10h keepevicted=true startswith=(EventCode=4768)
+| where closed_txn=0
+| search NOT user="*$@*"
+| table _time, ComputerName, username, src_ip_4, service_name, category
+
+### 7)Employ the Splunk search provided at the end of this section on all ingested data (All time) to find all involved images (Image field). Enter the missing image name from the following list as your answer. Rubeus.exe, _.exe
+
+index=main source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" (EventCode=3 dest_port=88 Image!=*lsass.exe) OR EventCode=1
+| eventstats values(process) as process by process_id
+| where EventCode=3
+| stats count by _time, Computer, dest_ip, dest_port, Image, process
+
+
+### 8)For which "service" did the user named Barbi generate a silver ticket?
+
+index=main (EventCode=4769 OR EventCode=4648 OR EventCode=4624)
+Account_Name="Barbi"
+| eval Service=coalesce(Service_Name, Target_Server_Name)
+| table _time EventCode ComputerName Account_Name Account_Whose_Credentials_Were_Used Service Client_Address Message
+| sort _time
+
+I's cif
