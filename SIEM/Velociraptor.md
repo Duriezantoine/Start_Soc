@@ -23,3 +23,8 @@ C:\Users\j0seph\AppData\Local\mimik
 I'm search to docs and recently actived i use the artefact Windows.Registry.RecentDocs
 I'm find 
 insurance.DOCX
+
+### 4)Visitez l'URL "https://127.0.0.1:8889/app/index.html#/search/all" et connectez-vous en utilisant les informations d'identification: admin/password. Après vous être connecté, cliquez sur le symbole circulaire adjacent à "Client ID". Par la suite, sélectionnez l'affichage "Client ID" et cliquez sur "Collecté". Lancez une nouvelle collection et rassemblez des artefacts étiquetés "Windows.KapeFiles.Targets" en utilisant la configuration _SANS_Triage. Enfin, examinez les artefacts recueillis et entrez le nom de la tâche planifiée qui commence par « A » et conclut par 'g' comme réponse.
+
+I's search task and find 
+AutorunsToWinEventLog
