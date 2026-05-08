@@ -30,3 +30,13 @@ index=main   10.10.0.221 EventCode=22
 
 I'm find  f1nancefileshare
  ### 4)Modify and employ the Splunk search provided at the "Detecting Kerberoasting - SPN Querying" part of this section on all ingested data (All time). Enter the name of the user who initiated the process that executed an LDAP query containing the "*(&(samAccountType=805306368)(servicePrincipalName=*)*" string at 2023-07-26 16:42:44 as your answer. Answer format: CORP\_
+First 
+index=main source="WinEventLog:SilkService-Log"
+| spath input=Message 
+| rename XmlEventData.* as * 
+| table _time, SubjectUserName, User, ProcessName, SearchFilter, _raw, XmlEventData,XmlEventData.PName
+| search SearchFilter="*(&(samAccountType=805306368)(servicePrincipalName=*)*"
+
+Second
+index=main ProcessId=7136 OR PID=7136
+| table _time, ComputerName, ProcessName, SubjectUserName, User, _raw
