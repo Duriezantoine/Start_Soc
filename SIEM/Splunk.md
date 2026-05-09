@@ -85,5 +85,10 @@ index="rdp_bruteforce" sourcetype="bro:rdp:json"
 
 ### 10)Use the "cobaltstrike_beacon" index and the "bro:http:json" sourcetype. What is the most straightforward Splunk command to pinpoint beaconing from the 10.0.10.20 source to the 192.168.151.181 destination? Answer format: One word
 
+timechart
 
+### 11)Use the "kerberos_bruteforce" index and the "bro:kerberos:json" sourcetype. Was the "accrescent/windomain.local" account part of the Kerberos user enumeration attack? Answer format: Yes, No
+
+index="kerberos_bruteforce" sourcetype="bro:kerberos:json" client="accrescent/windomain.local"
+| search error_msg!=KDC_ERR_PREAUTH_REQUIRED
 
