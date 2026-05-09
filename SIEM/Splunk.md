@@ -83,4 +83,7 @@ index="rdp_bruteforce" sourcetype="bro:rdp:json"
 | stats count values(cookie) by _time, id.orig_h, id.resp_h
 | where count>30
 
+### 10)Use the "cobaltstrike_beacon" index and the "bro:http:json" sourcetype. What is the most straightforward Splunk command to pinpoint beaconing from the 10.0.10.20 source to the 192.168.151.181 destination? Answer format: One word
+
+
 
