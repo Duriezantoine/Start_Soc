@@ -98,5 +98,7 @@ index="golden_ticket_attack" sourcetype="bro:kerberos:json"
 | where  request_type="TGS"
 | table id.resp_p, id.orig_p
 
+### 13)Utilisez l'index "cobaltstrike_exfiltration_https" et le type de source "bro:conn:json". Créez une recherche Splunk pour identifier l'exfiltration via HTTPS. Entrez l'adresse IP de destination identifiée comme votre réponse.
 
+Utilisez l'index "cobaltstrike_exfiltration_https" et le type de source "bro:conn:json". Créez une recherche Splunk pour identifier l'exfiltration via HTTPS. Entrez l'adresse IP de destination identifiée comme votre réponse.
 
