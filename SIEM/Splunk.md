@@ -92,3 +92,11 @@ timechart
 index="kerberos_bruteforce" sourcetype="bro:kerberos:json" client="accrescent/windomain.local"
 | search error_msg!=KDC_ERR_PREAUTH_REQUIRED
 
+### 12)Quel port l'attaquant utilise-t-il pour la communication lors de l'attaque Golden Ticket?
+
+index="golden_ticket_attack" sourcetype="bro:kerberos:json"
+| where  request_type="TGS"
+| table id.resp_p, id.orig_p
+
+
+
