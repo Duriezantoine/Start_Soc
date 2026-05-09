@@ -75,3 +75,12 @@ Account_Name="Barbi"
 | sort _time
 
 I's cif
+
+### 9)Construct a Splunk query targeting the "ssh_bruteforce" index and the "bro:ssh:json" sourcetype. The resulting output should display the time bucket, source IP, destination IP, client, and server, together with the cumulative count of authentication attempts where the total number of attempts surpasses 30 within a 5-minute time window. Enter the IP of the client that performed the SSH brute attack as your answer.
+
+index="rdp_bruteforce" sourcetype="bro:rdp:json"
+| bin _time span=5m
+| stats count values(cookie) by _time, id.orig_h, id.resp_h
+| where count>30
+
+
