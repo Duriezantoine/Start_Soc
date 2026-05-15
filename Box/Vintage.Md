@@ -27,3 +27,6 @@ http.user_agent == "Fuzz Faster U Fool v2.1.0-dev"
 Avant le paquet 26081
 
 http.request.version == "HTTP/1.1"  && http.user_agent == "Fuzz Faster U Fool v2.1.0-dev"
+
+Fuzz Faster sert juste a determiner si c'est un sous domaine !
+
